@@ -2,7 +2,7 @@
 
 ## Pseudocodigo
 
-```
+```wollok
 object macowins {
     var ventas
 
@@ -15,7 +15,7 @@ object macowins {
 
 ### Prendas
 
-```
+```wollok
 class Prenda {
 
     var precio
@@ -28,7 +28,7 @@ class Prenda {
 }
 ```
 
-```
+```wollok
 interface estado {
      method calculate(precioBase)
 }
@@ -62,7 +62,7 @@ object liquidacion implements estado {
 
 ### Ventas
 
-```
+```wollok
 class Venta {
      var prendas
      var fecha
@@ -78,7 +78,7 @@ class Venta {
 }
 ```
 
-```
+```wollok
 interface formaDePago {
      method precioFinal(subtotal)
 }
