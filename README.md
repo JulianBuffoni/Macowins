@@ -1,20 +1,15 @@
 # Macowins
-
+## Integrantes
+| Alumno                        | Legajo  |
+| ----------------------------- | ------- |
+| Bruno Juan Pablo              | 1768920 |
+| Buffoni Julian                | 1756760 |
+| Fusse Fausto                  | 1757519 |
+| Gette Delfina                 | 1722712 |
+| Riquelme Blaffet Pablo Daniel |         |
+|                               |         |
 ## Pseudocodigo
-
-```wollok
-object macowins {
-    var ventas
-
-    method gananciasDelDia(fecha){
-        var ventasDelDia = ventas.filter { unaVenta => unaVenta.fecha() == fecha }
-        return ventasDelDia.sum {unaVenta => unaVenta.precioFinal()}
-    }
-}
-```
-
 ### Prendas
-
 ```wollok
 class Prenda {
 
@@ -27,7 +22,7 @@ class Prenda {
 
 }
 ```
-
+#### Estados de Prenda
 ```wollok
 interface estado {
      method calculate(precioBase)
@@ -61,6 +56,16 @@ object liquidacion implements estado {
 ```
 
 ### Ventas
+```wollok
+object macowins {
+    var ventas
+
+    method gananciasDelDia(fecha){
+        var ventasDelDia = ventas.filter { unaVenta => unaVenta.fecha() == fecha }
+        return ventasDelDia.sum {unaVenta => unaVenta.precioFinal()}
+    }
+}
+```
 
 ```wollok
 class Venta {
@@ -77,7 +82,7 @@ class Venta {
      }
 }
 ```
-
+#### Formas de Pago
 ```wollok
 interface formaDePago {
      method precioFinal(subtotal)
