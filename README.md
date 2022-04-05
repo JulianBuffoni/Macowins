@@ -2,6 +2,7 @@
 
 ## Pseudocodigo
 
+```
 object macowins {
     var ventas
 
@@ -10,9 +11,11 @@ object macowins {
         return ventasDelDia.sum {unaVenta => unaVenta.precioFinal()}
     }
 }
- 
+```
+
 ### Prendas
 
+```
 class Prenda {
 
     var precio
@@ -23,7 +26,9 @@ class Prenda {
     }
 
 }
+```
 
+```
 interface estado {
      method calculate(precioBase)
 }
@@ -53,9 +58,11 @@ object liquidacion implements estado {
     }
 
 }
+```
 
 ### Ventas
 
+```
 class Venta {
      var prendas
      var fecha
@@ -69,7 +76,9 @@ class Venta {
           return formaDePago.precioFinal(this.calcularSubtotal())
      }
 }
+```
 
+```
 interface formaDePago {
      method precioFinal(subtotal)
 }
@@ -89,3 +98,4 @@ class Tarjeta implements formaDePago {
           return subtotal + recargo
      }
 }
+```
