@@ -12,43 +12,41 @@
 ### Prendas
 ```wollok
 class Prenda {
-
-    var precio
+    var nombre
+    var tipo
+    var precioBase
     var estadoPrenda
 
     method calcularPrecio(){
-        return estadoPrenda.calculate(precio)
+        return estadoPrenda.calcularPrecio(precioBase)
     }
 
 }
 ```
 #### Estados de Prenda
 ```wollok
-interface estado {
-     method calculate(precioBase)
-}
 
-object nueva implements estado {
+object nueva {
 
-    method calculate(precioBase){
+    method calcularPrecio(precioBase){
         return precioBase
     }
 
 }
 
-class Promocion implements estado {
+class Promocion {
 
     var valorFijo
 
-    method calculate(precioBase){
+    method calcularPrecio(precioBase){
         return precioBase - valorFijo
     }
 
 }
 
-object liquidacion implements estado {
+object liquidacion {
 
-    method calculate(precioBase){
+    method calcularPrecio(precioBase){
         return precioBase / 2
     }
 
@@ -63,6 +61,10 @@ object macowins {
     method gananciasDelDia(fecha){
         var ventasDelDia = ventas.filter { unaVenta => unaVenta.fecha() == fecha }
         return ventasDelDia.sum {unaVenta => unaVenta.precioFinal()}
+    }
+
+    method precioPrenda(prenda){
+        return prenda.calcularPrecio()
     }
 }
 ```
@@ -84,17 +86,14 @@ class Venta {
 ```
 #### Formas de Pago
 ```wollok
-interface formaDePago {
-     method precioFinal(subtotal)
-}
 
-object efectivo implements formaDePago {
+object efectivo {
      method precioFinal(subtotal) {
           return subtotal
      }
 }
 
-class Tarjeta implements formaDePago {
+class Tarjeta {
      var cantidadCuotas
      var coeficiente
 
