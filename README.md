@@ -7,7 +7,8 @@
 | Fusse Fausto                  | 1757519 |
 | Gette Delfina                 | 1722712 |
 | Riquelme Blaffet Pablo Daniel | 1632784 |
-|                               |         |
+
+
 ## Pseudocodigo
 ### Prendas
 ```wollok
